@@ -1,0 +1,45 @@
+we are creating Dockerfile. 
+Inside the Dockerfile we writing instructions in order to build our image. or telling docker to run my application using these instructions.
+
+FROM openjdk:8  // FROM baseimage. // we telling excuting our application starting from openjdk.jdk
+will be pulled from Docker Hub by docker deamon.
+
+WORKDIR /app/  // we are mentioning our working dirctory. 
+
+COPY . /app    // here we coping our files from our current directory(folder) to our working directory in to app
+
+RUN javc filename.java   // we are compling our application . As we know we excute java application in command prompot by using "javac filename.java" . Then after "java filename". Same way here.
+
+ENTRYPOINT [ "java","filename" ]
+
+
+commandline:
+docker build  -t ImageName:TagName dir  // example docker build -t vinesh/hello:123 . // 123 tagname
+Options
+-t − is to mention a tag to the image
+
+ImageName − This is the name you want to give to your image.
+
+TagName − This is the tag you want to give to your image.
+
+Dir − The directory where the Docker File is present.
+
+  command to run docker image by creating container.
+  docker run imageid or imagename.    // where you can find image name. using command docker images.
+  // it will create container in order to run image.
+  //example docker run vinesh/hellorld
+
+  docker ps // will give list of conatiners.
+
+
+
+
+-----pushing our local image to Docker Hub repository----
+
+in order to push image to dockerhub
+
+use command docker login.  give username and password to authentcate.
+
+Give always will build docker image with --- " docker build -t username/imagename ."
+
+give command docker push username/imagename  // it push to docker hub. to your repository.
